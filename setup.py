@@ -14,7 +14,7 @@ setup(
 	name = 'nomad_script',
 	version = version,
 	description = description,
-	url = '',
+	url = 'https://github.com/vlnk/nomad-script',
 	author = 'Valentin Laurent',
 	author_email = 'vlnk@mail.com',
 	license = 'MIT',
