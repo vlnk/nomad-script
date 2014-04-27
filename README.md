@@ -17,43 +17,47 @@ Installation
 ------------
 
 Il suffit d'entrer la commande suivante pour installer le script :
-``pip3 install nomad-script``
+````
+pip3 install nomad-script
+````
 
 L'installateur pip permet facilement de gérer l'installation et la désinstallation du script via la commande :
-``pip3 uninstall nomad-script``
+````
+pip3 uninstall nomad-script
+````
 
 Pour plus d'informations, veuillez consulter la documentation de [pip][2].
 
 [2]: http://www.pip-installer.org/en/latest/
 
 Il est possible d'installer directement le script en téléchargeant celui-ci et en l'installant via la commande :
-``
+````
 cd ../nomad-script
 python3 setup.py install
-``
+````
 
 Ou même de l'executer directement avec la commande :
-``
+````
 python3 ../nomad-script/script/command.py
-``
+````
 
 Configuration
 -------------
 
 Le script se lance avec la commande :
-``
+````
 nomad-script <chemin de la boîte noire>
-``
+````
 
 Un fichier de configuration est nécéssaire pour le bon fonctionnement du script. Il doit se trouver dans le même dossier que la boîte-noire.
-\*
+````
 bb_bin
 	|---> bb.exe
 	|---> config.txt
-\*
+````
 
 Voici un exemple du fichier **config.txt** :
-\*
+````
 # Ce fichier contient toute la configuration nécéssaire au bon fonctionnement du script. Veuillez ne modifier que ce qu'il y a après le '=', tous les paramètres seront intégrés au fonctionnement de NOMAD.
 # Ce fichier doit être placé dans le même dossier que la boîte noire.
 
@@ -80,7 +84,7 @@ DISPLAY_STATS = BBE OBJ : SOL
 HISTORY_FILE =
 SOLUTION_FILE =
 STATS_FILE =
-\*
+````
 
 Ce fichier contient tous les paramètres de NOMAD paramétrable par l'utilisateur pour une boîte noire. Les champs qui sont vides ne seront pas traités par le script.
 
