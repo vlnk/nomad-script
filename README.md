@@ -125,7 +125,7 @@ $ ./bb.exe -param
 instances path: ./instances.txt
 ````
 
-ATTENTION : l'utilisation des chemins relatifs obligent l'utilisateur à exécuter le script à un endroit précis. Selon l'exemple précédent, nous avons une structure comme ceci :
+**ATTENTION** : l'utilisation des chemins relatifs obligent l'utilisateur à exécuter le script à un endroit précis. Selon l'exemple précédent, nous avons une structure comme ceci :
 ````
 bb
  |
