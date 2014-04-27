@@ -32,13 +32,13 @@ Pour plus d'informations, veuillez consulter la documentation de [pip][2].
 
 Il est possible d'installer directement le script en téléchargeant celui-ci et en l'installant via la commande :
 ````bash
-$ cd ../nomad-script
+$ cd .../nomad-script
 $ python3 setup.py install
 ````
 
 Ou même de l'executer directement avec la commande :
 ````bash
-$ python3 ../nomad-script/script/command.py
+$ python3 .../nomad-script/script/command.py
 ````
 
 Configuration
@@ -115,18 +115,37 @@ Cette commande doit fournir les informations suivantes :
 
 Voici un exemple d'éxécution de la commande ``-param`` sur une boîte noire bien configurée :
 ````bash
-$ ./WSN -param
-5 inputs
- size_GA_population int   10 200 100
- nb_GA_iterations int   10 100 50
- elite_set_fraction float   0.1 1 0.2
- mutant_set_fraction float   0 1 0.1
- inheritance_probability float   0.5 0.95 0.7
-3 outputs
- value OBJ
- cpu NOTHING
- violation NOTHING
+$ ./bb.exe -param
+2 inputs
+ <nom input> <type> <borne inf> <borne sup> <valeur initiale>
+ input_exemple int   10 100 50
+2 outputs
+ <nom output> <type>
+ output_exemple OBJ
 instances path: ./instances.txt
+````
+
+ATTENTION : l'utilisation des chemins relatifs obligent l'utilisateur à exécuter le script à un endroit précis. Selon l'exemple précédent, nous avons une structure comme ceci :
+````
+bb
+ |
+ |---> bb_bin
+ |  	|---> bb.exe
+ |  	|---> config.txt
+ |---> instance_densite
+ |		|---> instance1.txt
+ |		|---> instance2.txt
+ |		|---> ...
+ |---> bb_src
+ |		|---> instances.txt
+ |		|---> main.cpp
+ |		|---> ...
+ ````
+
+Le script devra être éxecuté dans le dossier *bb_src* afin d'accéder correctement au fichier *instances.txt*. Ces contraintes obligent l'utilisateur à éxecuter le script comme ceci :
+````bash
+$ cd .../bb_src
+$ nomad-script ../bb_bin/bb.exe
 ````
 
 Références
