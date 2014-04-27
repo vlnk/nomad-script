@@ -44,6 +44,8 @@ python3 ../nomad-script/script/command.py
 Configuration
 -------------
 
+### Configuration utilisateur
+
 Le script se lance avec la commande :
 ````
 nomad-script <chemin de la boîte noire>
@@ -84,9 +86,47 @@ DISPLAY_STATS = BBE OBJ : SOL
 HISTORY_FILE =
 SOLUTION_FILE =
 STATS_FILE =
-````
+```
 
 Ce fichier contient tous les paramètres de NOMAD paramétrable par l'utilisateur pour une boîte noire. Les champs qui sont vides ne seront pas traités par le script.
+
+### Configuration développeur
+
+Afin d'utiliser le script, la boîte noire devra indiquer plusieurs informations à partir de la commande ``-param`` éxécutée directement sur la boîte noire. Par exemple :
+````
+bb_exe -param
+````
+
+Cette commande doit fournir les informations suivantes :
+1. pour chaque paramètre d'entrée de la boîte noire
+	* le nom du paramètre
+	* le type du paramètre (Integer, Real ou Float, Complex et Boolean)
+	* sa borne inférieure
+	* sa borne supérieure
+	* sa valeur initiale
+
+2. pour chaque valeur de sortie de la boîte noire
+	* le nom de la valeur de retour
+	* le type de cette valeur par rapport au problème (NOTHING or -, OBJ, CNT_EVAL, EB, F, PB, CSTR, PEB, STAT_AVG et STAT_SUM). Pour plus d'information sur ces valeurs, veuillez consulter la documentation de NOMAD : <http://www.gerad.ca/NOMAD/Downloads/user_guide.pdf>
+
+3. pour la gestion des instances
+	* le chemin du fichier que la boîte noire utilise pour gérer les instances.
+
+Voici un exemple d'éxécution de la commande ``-param`` sur une boîte noire bien configurée :
+````bash
+$ ./WSN -param
+5 inputs
+ size_GA_population int   10 200 100
+ nb_GA_iterations int   10 100 50
+ elite_set_fraction float   0.1 1 0.2
+ mutant_set_fraction float   0 1 0.1
+ inheritance_probability float   0.5 0.95 0.7
+3 outputs
+ value OBJ
+ cpu NOTHING
+ violation NOTHING
+instances path: ./instances.txt
+````
 
 Références
 ----------
