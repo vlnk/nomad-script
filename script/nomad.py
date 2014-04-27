@@ -1,5 +1,5 @@
 import os, platform
-from src.xml_manager import xmlParser
+from script.xml_manager import xmlParser
 
 class NomadManager(object):
 	"""

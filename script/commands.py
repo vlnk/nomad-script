@@ -1,9 +1,9 @@
 import sys, os, re
-from src.exceptions import InvalidPathException, NoneException, BlackBoxException
-from src.config import *
-from src.bb_parser import *
-from src.nomad import *
-from src.instances import *
+from script.exceptions import InvalidPathException, NoneException, BlackBoxException
+from script.config import *
+from script.bb_parser import *
+from script.nomad import *
+from script.instances import *
 
 def main():
 	"""
@@ -30,6 +30,7 @@ def main():
 		try:
 			bb_path = args.group(1)
 			bb_name = args.group(2)
+			print(bb_path + "   " + bb_name)
 
 			if not os.access(bb_path + bb_name, os.W_OK):
 				raise InvalidPathException(sys.argv[0])
@@ -41,6 +42,8 @@ def main():
 
 				print("--> PARSE BLACKBOX")
 				new_bb = BlackBoxParser(bb_path,bb_name, config)
+
+				print("--> GENERATE XML")
 				new_bb.toxml(xml_file)
 
 				print("--> IMPLEMENT NOMAD")
@@ -57,9 +60,6 @@ def main():
 		except BlackBoxException as e:
 			print("The blackbox is incomplete !")
 			print("Please, {} field must be completed.".format(e.value))
-
-		except TypeError:
-			print("Invalid argument !")
 
 if __name__ == "__main__":
 	main()

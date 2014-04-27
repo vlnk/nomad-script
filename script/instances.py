@@ -1,5 +1,5 @@
 import os
-from src.exceptions import InvalidPathException, NoneException
+from script.exceptions import InvalidPathException, NoneException
 
 class InstancesManager:
 	"""

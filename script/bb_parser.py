@@ -1,7 +1,7 @@
 import subprocess, re, io, os
-from src.bb_parameters import *
-from src.xml_manager import xmlCreator
-from src.exceptions import BlackBoxException
+from script.bb_parameters import *
+from script.xml_manager import xmlCreator
+from script.exceptions import BlackBoxException
 
 class BlackBoxParser:
 	"""

@@ -3,7 +3,7 @@ from __future__ import with_statement
 import os
 from setuptools import setup, find_packages
 
-version = '1.02'
+version = '1.082'
 
 install_requires = [
 	'setuptools'
@@ -24,12 +24,11 @@ setup(
 	author = 'Valentin Laurent',
 	author_email = 'vlnk@mail.com',
 	license = 'MIT',
-	packages = find_packages('src'),
-    package_dir = {'': 'src'},
+	packages = find_packages(),
     install_requires = install_requires,
     entry_points='''
     	[console_scripts]
-    	nomad_script = nomad_script.commands:main
+    	nomad-script = script.commands:main
     ''',
 	classifiers=[
         'Operating System :: POSIX',

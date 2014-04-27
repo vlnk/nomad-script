@@ -1,5 +1,5 @@
 import re, os
-from src.exceptions import InvalidPathException
+from script.exceptions import InvalidPathException
 
 class Configuration:
 	"""
