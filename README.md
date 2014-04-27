@@ -5,16 +5,87 @@ Qu'est ce que c'est?
 --------------------
 Un script pour interfacer le logiciel [NOMAD][1] développé par le GERAD.
 
+[1]: http://www.gerad.ca/nomad/ "NOMAD"
+
 Prérequis
 ---------
 
-- Linux, BSD, Mac
+- Linux, BSD, Mac OSX
 - Python 3.3+
 
-[1]: http://www.gerad.ca/nomad/ "NOMAD"
+Installation
+------------
 
+Il suffit d'entrer la commande suivante pour installer le script :
+``pip3 install nomad-script``
 
-### Références :
+L'installateur pip permet facilement de gérer l'installation et la désinstallation du script via la commande :
+``pip3 uninstall nomad-script``
+
+Pour plus d'informations, veuillez consulter la documentation de [pip][2].
+
+[2]: http://www.pip-installer.org/en/latest/
+
+Il est possible d'installer directement le script en téléchargeant celui-ci et en l'installant via la commande :
+``
+cd ../nomad-script
+python3 setup.py install
+``
+
+Ou même de l'executer directement avec la commande :
+``
+python3 ../nomad-script/script/command.py
+``
+
+Configuration
+-------------
+
+Le script se lance avec la commande :
+``
+nomad-script <chemin de la boîte noire>
+``
+
+Un fichier de configuration est nécéssaire pour le bon fonctionnement du script. Il doit se trouver dans le même dossier que la boîte-noire.
+``
+bb_bin
+	|---> bb.exe
+	|---> config.txt
+``
+
+Voici un exemple du fichier **config.txt** :
+``
+# Ce fichier contient toute la configuration nécéssaire au bon fonctionnement du script. Veuillez ne modifier que ce qu'il y a après le '=', tous les paramètres seront intégrés au fonctionnement de NOMAD.
+# Ce fichier doit être placé dans le même dossier que la boîte noire.
+
+# Si la boîte noire accèpte des paramètres en ligne de commande. La valeur par défaut est NO. Si votre boîte noire accèpte des paramètres en lignes de commandes, veuillez mettre YES.
+PARAMETERS_ON_COMMAND_LINE = no
+
+# Le chemin du dossier d'instances, afin de les récupérer directement et de les traiter au fur et à mesure par NOMAD.
+INSTANCES_DIRECTORY = ../instances_densite
+
+# Algorithmic parameters
+MAX_TIME =
+MAX_BB_EVAL = 100
+TMP_DIR = /tmp
+DIRECTION_TYPE =
+F_TARGET = 
+INITIAL_MESH_SIZE =
+LH_SEARCH =
+
+# Output parameters
+CACHE_FILE =
+DISPLAY_ALL_EVAL =
+DISPLAY_DEGREE =
+DISPLAY_STATS = BBE OBJ : SOL 
+HISTORY_FILE =
+SOLUTION_FILE =
+STATS_FILE =
+``
+
+Ce fichier contient tous les paramètres de NOMAD paramétrable par l'utilisateur pour une boîte noire. Les champs qui sont vides ne seront pas traités par le script.
+
+Références
+----------
 
 + C. Audet, S. Le Digabel, and C. Tribes. NOMAD user guide. Technical Report G-2009-37, Les cahiers du GERAD, 2009.
 
