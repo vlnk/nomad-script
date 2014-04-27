@@ -46,14 +46,14 @@ nomad-script <chemin de la boîte noire>
 ``
 
 Un fichier de configuration est nécéssaire pour le bon fonctionnement du script. Il doit se trouver dans le même dossier que la boîte-noire.
-``
+\*
 bb_bin
 	|---> bb.exe
 	|---> config.txt
-``
+\*
 
 Voici un exemple du fichier **config.txt** :
-``
+\*
 # Ce fichier contient toute la configuration nécéssaire au bon fonctionnement du script. Veuillez ne modifier que ce qu'il y a après le '=', tous les paramètres seront intégrés au fonctionnement de NOMAD.
 # Ce fichier doit être placé dans le même dossier que la boîte noire.
 
@@ -80,7 +80,7 @@ DISPLAY_STATS = BBE OBJ : SOL
 HISTORY_FILE =
 SOLUTION_FILE =
 STATS_FILE =
-``
+\*
 
 Ce fichier contient tous les paramètres de NOMAD paramétrable par l'utilisateur pour une boîte noire. Les champs qui sont vides ne seront pas traités par le script.
 
