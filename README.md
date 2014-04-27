@@ -113,7 +113,7 @@ Cette commande doit fournir les informations suivantes :
 3. pour la gestion des instances
 	* le chemin du fichier que la boîte noire utilise pour gérer les instances.
 
-Voici un exemple d'éxécution de la commande ``-param`` sur une boîte noire bien configurée :
+Voici un exemple d'exécution de la commande ``-param`` sur une boîte noire bien configurée :
 ````bash
 $ ./bb.exe -param
 2 inputs
@@ -147,6 +147,26 @@ Le script devra être éxecuté dans le dossier *bb_src* afin d'accéder correct
 $ cd .../bb_src
 $ nomad-script ../bb_bin/bb.exe
 ````
+
+Résultats
+---------
+
+Le script va exécuter le programme NOMAD selon la variable d'environnement ``$NOMAD_HOME`` configurée avec l'installation de NOMAD.
+Ce script va chercher toutes les instances disponibles pour la boîte noire et exécuter cette dernière pour chacune d'entre elles. Chaque solution générée par NOMAD est écrite dans un fichier portant le nom de l'instance. Ce fichier se trouve dans le répertoire ``solution``dans le dossier contenant l'exécutable de la boîte noire.
+
+````
+bb
+ |
+ |---> bb_bin
+ |  	|---> bb.exe
+ |  	|---> config.txt
+ |		|---> solutions
+ |		|		|---> instance1.txt
+ |		|		|---> instance2.txt
+ |		|		|---> ...
+ ````
+
+ **ATTENTION** : le script ne fonctionne pas sous WINDOWS, la recherche de NOMAD étant différente cette dernière n'a pas été implémentée. 
 
 Références
 ----------
