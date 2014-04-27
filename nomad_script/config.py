@@ -2,7 +2,30 @@ import re, os
 from src.exceptions import InvalidPathException
 
 class Configuration:
-	"""docstring for Configuration"""
+	"""
+		Configuration object contains all of the functions 
+		to configurate the script.
+		It analyses the file config.txt in the binary folder
+		and parse all the configuration write by the user. If
+		no config.txt was found it raises an exeption, if the
+		user don't write any configuration, all these parameters 
+		will not be take into account during the NOMAD implementation.
+
+		It contains the following methods:
+
+			*) __init__(self, config_path)
+		Check if the config.txt file is in the blackbox folder and open it.
+
+			*) checkParam(self, string)
+		Check the value of each parameter for the configuration.
+
+			*) parseConfigFile(self)
+		Check all the lines of the file and put all configuration parameters
+		into a variable in order to use them during the NOMAD implementation.
+
+			*) __len__(self) [debug]
+			*) __str__(self) [debug]
+	"""
 
 	def __init__(self, config_path):
 		self.dic = {}

@@ -6,6 +6,20 @@ from src.nomad import *
 from src.instances import *
 
 def main():
+	"""
+		Title: NomadScript
+		Description: A tool for automatic NOMAD managment from a well
+		configurated blackbox.
+		Author: Valentin Laurent (@vlnk)
+		URL: https://github.com/vlnk/nomad-script
+
+		Notes:  Please note this tool may contain errors, and
+		    is provided "as it is". There is no guarantee
+		    that it will work on your target systems(s), as
+		    the code may have to be adapted. 
+		    This is to avoid script kiddie abuse as well.
+	"""
+	
 	if (len(sys.argv) != 2):
 		print("USAGE : {} <blackbox_path>".format(sys.argv[0]))
 

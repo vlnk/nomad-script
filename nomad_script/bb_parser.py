@@ -4,7 +4,57 @@ from src.xml_manager import xmlCreator
 from src.exceptions import BlackBoxException
 
 class BlackBoxParser:
-	"""docstring for BlackBoxParser"""
+	"""
+		BlackBoxParser analyses the blackbox and keeps all 
+		algorithmic parameters required by NOMAD in order to find
+		the better solution and the better parameters for the blackbox
+		and its algorithmic problem.
+		WARNING: This object required that the blackbox provide all the
+		required parameters with the command "-param". If, the blackbox
+		doesn't have any command "-param" this script cannot work and if 
+		it is but the parameters are not introduced with the good syntax 
+		the result cannot be good.
+
+		The required syntax for the blackbox is:
+			[INPUTS]
+			<name of input parameter> <type> <lower bound> <upper bound> <initial value>
+			[OUTPUTS]
+			<name of the output parameter> <type>
+			[INSTANCE]
+			<path of the instance file>
+
+		To see how the instances are managed, you can see the documentation
+		of the instances manager included in "instances.py".
+		For the input types you have the choice between 
+			Integer, Real or Float, Complex and Boolean
+		For the output types you have the choice between
+			NOTHING or -, OBJ, CNT_EVAL, EB, F, PB, CSTR, PEB, STAT_AVG and STAT_SUM
+		See the NOMAD documentation for more explainations.
+
+		It contains the following methods:
+			*) __init__(self, bb_path, bb_name, config)
+		It initialize all the paths and the configuration required for the
+		blackbox parsing. It instanciate the configuration manager.
+
+			*) addParameter(self, value)
+		It adds each parameter in their correct category in order to write
+		the correct XML file.
+
+			*) parse(self)
+		It parses the blackbox by using the blackbox command "-param"
+
+			*) toxml(self)
+		Write the XML file which contains all required and optionals
+		parameters for NOMAD execution.
+
+			*) create_executable(self)
+		Create a script to manage the blackbox if it doesn't manage a 
+		text file and uses parameters in command-line.
+
+			*) convert_input_param
+		Analyses each type of input parameters and transfoms its into 
+		an unique syntax.  
+	"""
 	def __init__(self, bb_path, bb_name, config):
 		self.bb_path = bb_path
 		self.bb_name = bb_name

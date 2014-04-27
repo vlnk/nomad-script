@@ -2,7 +2,18 @@ import os, platform
 from src.xml_manager import xmlParser
 
 class NomadManager(object):
-	"""docstring for NomadExecute"""
+	"""
+		NomadManager will find the NOMAD path from the system variables and
+		configure it with the file "param.txt".
+		
+		It contains the following methods:
+			*) __init__(self, xml_file, txt_file, path)
+		Initialize the configuration of the "param.txt" required by NOMAD
+		by inctiantiating the XML parser.
+
+			*) find_nomad(self)
+		This function find the NOMAD path.
+	"""
 	def __init__(self, xml_file, txt_file, path):
 		self.file_param = txt_file
 		self.path = path
@@ -12,7 +23,6 @@ class NomadManager(object):
 		xml_parser.parsetotxt(self.file_param)
 
 	def find_nomad(self):
-		"""This function find the NOMAD path."""
 		nomad_bin = ""
 
 		if (platform.system() == 'Windows'):

@@ -1,7 +1,13 @@
+from __future__ import with_statement
+
 import os
 from setuptools import setup, find_packages
 
-version = '1.0'
+version = '1.02'
+
+install_requires = [
+	'setuptools'
+]
 
 description = 'A python script in order to manage a blackbox with nomad.'
 current_dir = os.path.dirname(__file__)
@@ -18,9 +24,16 @@ setup(
 	author = 'Valentin Laurent',
 	author_email = 'vlnk@mail.com',
 	license = 'MIT',
-	packages = ['src'],
-    entry_points="""
-    [console_scripts]
-    nomad_script = src.commands:main
-    """,
-	zip_safe=False)
+	packages = find_packages('src'),
+    package_dir = {'': 'src'},
+    install_requires = install_requires,
+    entry_points='''
+    	[console_scripts]
+    	nomad_script = nomad_script.commands:main
+    ''',
+	classifiers=[
+        'Operating System :: POSIX',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4'
+    ])

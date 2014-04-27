@@ -3,7 +3,10 @@ from xml.etree.ElementTree import Element, SubElement, Comment
 from xml.dom import minidom
 
 class xmlParser:
-	"""docstring for xmlParser"""
+	"""
+		xmlParser analyses the XML file to convert it in a "param.txt"
+		file required by NOMAD.
+	"""
 	
 	column_size = 20 
 
@@ -42,7 +45,10 @@ class xmlParser:
 		txt_file.close()
 
 class xmlCreator:
-	"""docstring for xmlCreator"""
+	"""
+		xmlCreator create an well-formated XML file from the blackbox
+		information and the configuration file. 
+	"""
 	def __init__(self):
 		self.root = minidom.Document()
 		self.nomad = self.root.createElement('nomad_parameters')

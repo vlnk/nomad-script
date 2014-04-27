@@ -2,7 +2,23 @@ import os
 from src.exceptions import InvalidPathException, NoneException
 
 class InstancesManager:
-	"""docstring for InstanceManager"""
+	"""
+		InstancesManager manage the instance file and execute NOMAD 
+		for each instance which are in the instance folder.
+		WARNING: the instance folder must be indicated in the
+		configuration file, else an exception will be raised !
+		In addition, the blackbox must provide what file she uses
+		to run with a particular instance.
+
+		It contains the following methods:
+			*) __init__(self, path1, path2, nomad_bin, bb_path)
+		This methods initialises the object with correct paths for 
+		the instances folder, the file required by the blackbox to run
+		its with a specific instance, the NOMAD path and the blackbox path.
+
+			*) run(self)
+		It runs NOMAD with the complete configuration.  
+	"""
 	def __init__(self, path1, path2, nomad_bin, bb_path):
 
 		self.solution_dir = bb_path + "solutions"

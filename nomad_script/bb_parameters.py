@@ -1,5 +1,8 @@
 class Parameter:
-	"""docstring for Paramerter"""
+	"""
+		Mother object for each parameter groups. It only contains
+		parameter's name.
+	"""
 	def __init__(self, name):
 		self.name = name
 
@@ -7,7 +10,14 @@ class Parameter:
 		return "\tNAME : {}\n".format(self._name) 
 
 class ProblemParameter(Parameter):
-	"""docstring for ProblemParameter"""
+	"""
+		ProblemParameter contains all parameter required to manage the
+		problem. These parameters are absolutly required to run NOMAD, 
+		and they are introduced by the blackbox.
+
+		It contains the parameters:
+			UPPER_BOUND, LOWER_BOUND, X0 and TYPE
+	"""
 	def __init__(self, name, input_type, lower_bound, upper_bound, default_value):
 		Parameter.__init__(self, name)
 		self.upper_bound = upper_bound
@@ -24,7 +34,15 @@ class ProblemParameter(Parameter):
 		return string
 
 class AlgorithmicParameter(Parameter):
-	"""docstring for AlgorithmicParameter"""
+	"""
+		AlgorithmicParameter contains all parameters to manage the NOMAD
+		functionment, user should indicate some of them to have a better 
+		control of the NOMAD implementation.
+
+		It contains the parameters:
+			DIRECTION_TYPE, F_TARGET, INITIAL_MESH_SIZE, 
+			LH_SEARCH, MAX_BB_EVAL, MAX_TIME and TMP_DIR
+	"""
 	def __init__(self, name, config):
 		Parameter.__init__(self, name)
 		self.direction_type = config.dic['direction_type']
@@ -47,7 +65,14 @@ class AlgorithmicParameter(Parameter):
 		return string
 
 class OutputParameter(Parameter):
-	"""docstring for OutputParameter"""
+	"""
+		OutputParameter contains all parameters to manage how NOMAD
+		should display the solution. All of these parameters are optionals.
+
+		It contains the parameters:
+			CACHE_FILE, DISPLAY_ALL_EVAL, DISPLAY_DEGREE, DISPLAY_STATS,
+			HISTORY_FILE, SOLUTION_FILE, STATS_FILE
+	"""
 	def __init__(self, name, config):
 		Parameter.__init__(self, name)
 		self.cache_file = config.dic['cache_file']
