@@ -17,13 +17,13 @@ Installation
 ------------
 
 Il suffit d'entrer la commande suivante pour installer le script :
-````
-pip3 install nomad-script
+````bash
+$ pip3 install nomad-script
 ````
 
 L'installateur pip permet facilement de gérer l'installation et la désinstallation du script via la commande :
-````
-pip3 uninstall nomad-script
+````bash
+$ pip3 uninstall nomad-script
 ````
 
 Pour plus d'informations, veuillez consulter la documentation de [pip][2].
@@ -31,14 +31,14 @@ Pour plus d'informations, veuillez consulter la documentation de [pip][2].
 [2]: http://www.pip-installer.org/en/latest/
 
 Il est possible d'installer directement le script en téléchargeant celui-ci et en l'installant via la commande :
-````
-cd ../nomad-script
-python3 setup.py install
+````bash
+$ cd ../nomad-script
+$ python3 setup.py install
 ````
 
 Ou même de l'executer directement avec la commande :
-````
-python3 ../nomad-script/script/command.py
+````bash
+$ python3 ../nomad-script/script/command.py
 ````
 
 Configuration
@@ -47,8 +47,8 @@ Configuration
 ### Configuration utilisateur
 
 Le script se lance avec la commande :
-````
-nomad-script <chemin de la boîte noire>
+````bash
+$ nomad-script <chemin de la boîte noire>
 ````
 
 Un fichier de configuration est nécéssaire pour le bon fonctionnement du script. Il doit se trouver dans le même dossier que la boîte-noire.
@@ -93,8 +93,8 @@ Ce fichier contient tous les paramètres de NOMAD paramétrable par l'utilisateu
 ### Configuration développeur
 
 Afin d'utiliser le script, la boîte noire devra indiquer plusieurs informations à partir de la commande ``-param`` éxécutée directement sur la boîte noire. Par exemple :
-````
-bb_exe -param
+````bash
+$ bb_exe -param
 ````
 
 Cette commande doit fournir les informations suivantes :
