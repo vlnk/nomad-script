@@ -98,6 +98,7 @@ bb_exe -param
 ````
 
 Cette commande doit fournir les informations suivantes :
+
 1. pour chaque paramètre d'entrée de la boîte noire
 	* le nom du paramètre
 	* le type du paramètre (Integer, Real ou Float, Complex et Boolean)
